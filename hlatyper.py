@@ -237,6 +237,8 @@ def pysam_to_hdf(samfile):
     if VERBOSE:
         print('\n', now(), len(hits), 'reads loaded. Creating dataframe...')
     pos_df = pd.DataFrame.from_dict(hits, orient='index')
+    print(sam.references[:])
+    print(pos_df.columns)
     pos_df.columns = sam.references[:]
     details_df = pd.DataFrame.from_dict(read_details, orient='index')
     details_df.columns = ['mismatches', 'read_length']
